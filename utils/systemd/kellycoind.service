@@ -1,0 +1,21 @@
+[Unit]
+Description=KellyCoin Full Node
+After=network.target
+
+[Service]
+User=kellycoin
+Group=kellycoin
+WorkingDirectory=~
+RuntimeDirectory=kellycoin
+
+Type=forking
+PIDFile=/run/kellycoin/kellycoind.pid
+
+ExecStart=/usr/bin/kellycoind --config-file /etc/kellycoind.conf \
+    --detach --pidfile /run/kellycoin/kellycoind.pid
+
+Restart=always
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
