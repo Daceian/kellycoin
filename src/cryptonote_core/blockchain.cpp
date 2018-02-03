@@ -89,7 +89,7 @@ static const struct {
   uint8_t threshold;
   time_t time;
 } mainnet_hard_forks[] = {
-  // version 1 from the start of the blockchain
+  // version 3 from the start of the blockchain
   { 1, 1, 0, 1341378000 },
 
   // version 2 starts from block 1009827, which is on or around the 20th of March, 2016. Fork time finalised on 2015-09-20. No fork voting occurs for the v2 fork.
@@ -115,7 +115,7 @@ static const struct {
   uint8_t threshold;
   time_t time;
 } testnet_hard_forks[] = {
-  // version 1 from the start of the blockchain
+  // version 3 from the start of the blockchain
   { 1, 1, 0, 1341378000 },
 
   // version 2 starts from block 624634, which is on or around the 23rd of November, 2015. Fork time finalised on 2015-11-20. No fork voting occurs for the v2 fork.
@@ -387,6 +387,7 @@ bool Blockchain::init(BlockchainDB* db, const bool testnet, bool offline, const 
   {
     // ensure we fixup anything we found and fix in the future
     // m_db->fixup();
+	m_db->set_batch_transactions(true);
   }
 
   m_db->block_txn_start(true);

@@ -72,7 +72,6 @@
 
 
 #define DIFFICULTY_TARGET                            	60  // seconds
-#define DIFFICULTY_TARGET_V1                            60  // seconds
 #define DIFFICULTY_WINDOW                               720 // blocks
 #define DIFFICULTY_LAG                                  15  // !!!
 #define DIFFICULTY_CUT                                  60  // timestamps to cut after sorting
@@ -83,7 +82,7 @@
 #define CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS       1
 
 
-#define DIFFICULTY_BLOCKS_ESTIMATE_TIMESPAN             DIFFICULTY_TARGET_V1 //just alias; used by tests
+#define DIFFICULTY_BLOCKS_ESTIMATE_TIMESPAN             DIFFICULTY_TARGET //just alias; used by tests
 
 
 #define BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT          10000  //by default, blocks ids count in synchronizing
@@ -153,9 +152,9 @@ namespace config
   uint16_t const RPC_DEFAULT_PORT = 25857;
   uint16_t const ZMQ_RPC_DEFAULT_PORT = 25858;
   boost::uuids::uuid const NETWORK_ID = { {
-      0xA1 ,0x30, 0xF1, 0x71 , 0x1A, 0x04 , 0x41, 0x1A, 0x17, 0x31, 0x00, 0x81, 0x16, 0xA1, 0xA1, 0x10
+	  0xC4 ,0xD8, 0xAB, 0x0F , 0xEC, 0xC4 , 0x1F, 0x04, 0x2F, 0x71, 0x6D, 0x0E, 0x98, 0x43, 0xB0, 0x5F
     } };
-  std::string const GENESIS_TX = "";
+  std::string const GENESIS_TX = "010a01ff000180a09b9fb91802160ff6c1fe11314dd5a8a90986011e1ad7abdb3392ccf748c4f44e3584ea09fa2101390880457b612bcfb1883f7c99fbf944f9450b4212ba43abd5792ea57d8fd6e9";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
@@ -167,7 +166,7 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 36946;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 36947;
     boost::uuids::uuid const NETWORK_ID = { {
-        0xA1 ,0x30, 0xF1, 0x71 , 0x1A, 0x04 , 0x41, 0x1A, 0x17, 0x31, 0x00, 0x81, 0x16, 0xA1, 0xA1, 0x11
+        0xC4 ,0xD8, 0xAB, 0x0F , 0xEC, 0xC4 , 0x1F, 0x04, 0x2F, 0x71, 0x6D, 0x0E, 0x98, 0x43, 0xB0, 0x5F
       } };
     std::string const GENESIS_TX = "";
     uint32_t const GENESIS_NONCE = 10001;
