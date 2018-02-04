@@ -38,9 +38,9 @@
 #define CRYPTONOTE_MAX_BLOCK_NUMBER                     500000000
 #define CRYPTONOTE_MAX_BLOCK_SIZE                       500000000  // block header blob limit, never used!
 #define CRYPTONOTE_GETBLOCKTEMPLATE_MAX_BLOCK_SIZE	196608 //size of block (bytes) that is the maximum that miners will produce
-#define CRYPTONOTE_MAX_TX_SIZE                          1000000000
+#define CRYPTONOTE_MAX_TX_SIZE                          100000
 #define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER          0
-#define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            18
+#define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            10
 #define CURRENT_TRANSACTION_VERSION                     2
 #define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
@@ -55,8 +55,8 @@
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)30) // 3 * pow(10, 1)
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    60000 //size of block (bytes) after which reward for block calculated using block size
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    20000 //size of block (bytes) after which reward for block calculated using block size - before first fork
+#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    100000 //size of block (bytes) after which reward for block calculated using block size
+#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    100000 //size of block (bytes) after which reward for block calculated using block size - before first fork
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    300000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
 #define CRYPTONOTE_DISPLAY_DECIMAL_POINT                2
@@ -72,7 +72,7 @@
 
 
 #define DIFFICULTY_TARGET                            	60  // seconds
-#define DIFFICULTY_WINDOW                               720 // blocks
+#define DIFFICULTY_WINDOW                               1440 // blocks
 #define DIFFICULTY_LAG                                  15  // !!!
 #define DIFFICULTY_CUT                                  60  // timestamps to cut after sorting
 #define DIFFICULTY_BLOCKS_COUNT                         DIFFICULTY_WINDOW + DIFFICULTY_LAG
@@ -145,28 +145,28 @@ namespace config
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
   std::string const P2P_REMOTE_DEBUG_TRUSTED_PUB_KEY = "0000000000000000000000000000000000000000000000000000000000000000";
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 17007;
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 17008;
+  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 1453367;
+  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 1453368;
   uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 42;
-  uint16_t const P2P_DEFAULT_PORT = 25856;
-  uint16_t const RPC_DEFAULT_PORT = 25857;
-  uint16_t const ZMQ_RPC_DEFAULT_PORT = 25858;
+  uint16_t const P2P_DEFAULT_PORT = 45931;
+  uint16_t const RPC_DEFAULT_PORT = 45932;
+  uint16_t const ZMQ_RPC_DEFAULT_PORT = 45933;
   boost::uuids::uuid const NETWORK_ID = { {
-	  0xC4 ,0xD8, 0xAB, 0x0F , 0xEC, 0xC4 , 0x1F, 0x04, 0x2F, 0x71, 0x6D, 0x0E, 0x98, 0x43, 0xB0, 0x5F
+	  0xd6 ,0x8e, 0xbb, 0xe4 , 0xcb, 0xb6 , 0xf0, 0x78, 0x45, 0xdf, 0xb9, 0xaa, 0x9f, 0xd0, 0x08, 0xbe
     } };
-  std::string const GENESIS_TX = "010a01ff000180a09b9fb91802160ff6c1fe11314dd5a8a90986011e1ad7abdb3392ccf748c4f44e3584ea09fa2101390880457b612bcfb1883f7c99fbf944f9450b4212ba43abd5792ea57d8fd6e9";
+  std::string const GENESIS_TX = "010a01ff000180f0e8eed524026398f79e5372eab656309b4c6db393bc3ca45b2b86262e26088e17f7a859b1a721014bec5ebfb02933601b8b501250fa00805f79c18d253922ccee62f0221e1abbbb";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 17007;
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 17008;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 1453367;
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 1453368;
     uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 63;
-    uint16_t const P2P_DEFAULT_PORT = 36945;
-    uint16_t const RPC_DEFAULT_PORT = 36946;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 36947;
+    uint16_t const P2P_DEFAULT_PORT = 25931;
+    uint16_t const RPC_DEFAULT_PORT = 25932;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 25933;
     boost::uuids::uuid const NETWORK_ID = { {
-        0xC4 ,0xD8, 0xAB, 0x0F , 0xEC, 0xC4 , 0x1F, 0x04, 0x2F, 0x71, 0x6D, 0x0E, 0x98, 0x43, 0xB0, 0x5F
+        0x04 ,0xcc, 0x98, 0xa0 , 0xf2, 0xe3 , 0x56, 0xc0, 0x1a, 0x6e, 0xbd, 0x47, 0xee, 0x1a, 0x9c, 0xda
       } };
     std::string const GENESIS_TX = "";
     uint32_t const GENESIS_NONCE = 10001;
